@@ -1,15 +1,19 @@
 from rest_framework import serializers
-from .models import Product, User, Order
+from .models import Products, Users, Orders
 
 # Serializers (to JSON)
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model  = Product
+        model  = Products
+        fields = ['id', 'name', 'price', 'stock']
+
+class ProductDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = Products
         fields = '__all__'
-        #fields = ['id', 'name', 'description', 'price', 'stock']
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model  = Order
+        model  = Orders
         fields = ['id', 'product', 'quantity', 'total_price','paid']

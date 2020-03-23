@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'api_rest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'caixa_db',
+        'NAME': 'caixa_database',
         'USER': 'caixa',
         'PASSWORD': 'admin',
         'HOST': 'localhost',

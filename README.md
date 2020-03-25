@@ -3,6 +3,7 @@ Repositório para criação de um API Rest.
 
 Trello: https://trello.com/b/VxClBfCv/api-django-rest-framework
 
+Heroku: https://djangointernship.herokuapp.com/
 
 # Endpoints: products ( Produtos )
 
@@ -36,6 +37,7 @@ Key: Authorization
 Value: Token 54c71d7f9a204b317c63a8395db54ed9de019ac0
 
 # Acesso Heroku
+
 https://djangointernship.herokuapp.com/products
 
 https://djangointernship.herokuapp.com/products/1

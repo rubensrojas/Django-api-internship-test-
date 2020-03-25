@@ -3,8 +3,6 @@ Repositório para criação de um API Rest.
 
 Trello: https://trello.com/b/VxClBfCv/api-django-rest-framework
 
-Heroku: https://djangointernship.herokuapp.com/
-
 # Endpoints: products ( Produtos )
 
 products                           ( GET - Lista todos os produtos )

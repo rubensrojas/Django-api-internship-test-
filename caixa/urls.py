@@ -1,15 +1,17 @@
 from django.urls import path, include
 from .views import ( 
-    ProductsListAPIview, ProductsCreateAPIView,
+    ProductsListCreateAPIView,
     ProductsRetrieveUpdateDestroyAPIView
     )
+from account.views import AccountRegistrationView
+# Token
+from rest_framework.authtoken.views import obtain_auth_token
 
 # Urls
 
 urlpatterns = [
-    path('products/', ProductsListAPIview.as_view(), name = 'product-list'),                              # GET - Lista todos os produtos
-    path('products/create', ProductsCreateAPIView.as_view(), name = 'product-create'),                    # POST - Cria um produto
-    path('products/<int:id>/', ProductsRetrieveUpdateDestroyAPIView.as_view(), name = 'product-detail'),  # GET - Pega um produto especifico
-    #path('products/<int:id>/edit/', ProductsUpdateAPIView.as_view(),   name = 'product-edit'),    # PATCH - Edita um produto
-    #path('products/<int:id>/delete/', ProductsDeleteAPIView.as_view(), name = 'product-edit'),    # DELETE - Deleta um produto
-]
+    path('products', ProductsListCreateAPIView.as_view(), name = 'product-list'),                        # GET - Lista todos os produtos
+    path('products/<int:id>', ProductsRetrieveUpdateDestroyAPIView.as_view(), name = 'product-detail'),  # GET - Pega um produto especifico
+    path('account/registration', AccountRegistrationView.as_view(), name = 'registration'),              # POST - Registra o usuário
+    path('account/login', obtain_auth_token, name = 'login'),                                            # POST - Faz login de um usuário e recupera seu Token
+    ]

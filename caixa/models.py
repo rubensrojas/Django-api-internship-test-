@@ -1,5 +1,8 @@
 from django.db import models
 
+# Local
+from account.models import Account
+
 # Create your models here.
 
 # Produtos
@@ -7,7 +10,7 @@ class Product(models.Model):
     name        = models.CharField(max_length = 100)
     description = models.CharField(max_length = 256)
     price       = models.FloatField()
-    stock       = models.IntegerField(default = 0)
+    stock       = models.IntegerField()
     created_at  = models.DateTimeField(auto_now_add=True) # Data de criação na database
 
     def __str__(self):
@@ -37,14 +40,14 @@ class User(models.Model):
         managed = True
         verbose_name = 'User'
         verbose_name_plural = 'Users'
-
+"""
 
 # Pedidos
 class Order(models.Model):
     product     = models.ForeignKey(Product, on_delete = models.CASCADE) # Product
-    owner       = models.ForeignKey(User, on_delete = models.CASCADE)    # User
-    quantity    = models.IntegerField(default = 0)
-    total_price = models.FloatField(default = 0)
+    owner       = models.ForeignKey(Account, on_delete = models.CASCADE) # User
+    quantity    = models.IntegerField()
+    total_price = models.FloatField()
     paid        = models.BooleanField(default = False)
     #create_at?
 
@@ -56,8 +59,5 @@ class Order(models.Model):
         managed = True
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
-"""
-
-
 
 

@@ -161,7 +161,7 @@ class OrderRetriveUpdateDeleteAPIView(APIView):
         order.total_price = total_price
         order.save()
 
-        serializer = OrderSerializer(order)
+        serializer = OrderDetailSerializer(order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def delete(self, request, id):
